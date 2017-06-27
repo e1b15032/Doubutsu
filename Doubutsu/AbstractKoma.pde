@@ -1,22 +1,10 @@
-class KomaStatus {
-  boolean captured;
-  boolean active;
-  boolean selected;
-
-  KomaStatus(boolean active) {
-    this.active = active;
-    this.captured = false;
-    this.selected = false;
-  }
-}
-
 abstract class AbstractKoma {
   String name;
   int x;
   int y;
   int team;//0 or 1
   KomaStatus kStat;
-  
+
   AbstractKoma(String name, int x, int y, int team, boolean active) {
     this.name = name;
     this.x = x;
@@ -34,11 +22,5 @@ abstract class AbstractKoma {
     PImage img = loadImage(komaImage);
     image(img, SQUARESIZE*this.x+2, this.y*SQUARESIZE+2, SQUARESIZE-4, SQUARESIZE-4);
 
-   if (this.kStat.selected) this.drawSelected();
-  }
-
-  void drawSelected() {
-    fill(#FF0000, SQUARESIZE);
-    rect(this.x*SQUARESIZE, this.y*SQUARESIZE, SQUARESIZE, SQUARESIZE);
   }
 }
